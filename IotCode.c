@@ -270,3 +270,5 @@ int main(void)
         }
     }
 }                                       
+//reference for code : https://stackoverflow.com/questions/14388692/how-to-parse-a-small-json-file-with-jsmn-on-an-embedded-system
+// the code has been taken and tried from this link but couldnt run it properly.
