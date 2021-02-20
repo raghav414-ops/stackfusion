@@ -8,6 +8,8 @@
 
 #include <avr/io.h>
 #include "jsmn.h"
+#include<string.h>
+#include<>
 
 int main(void)
 {
