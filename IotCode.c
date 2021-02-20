@@ -247,13 +247,13 @@ jsmn_t t[512];
 char jsonstr[512*1024];
 int main(void)
 {
-    size)_t pos=0;
+    size_t pos=0;
     int c;
     
     while(1)
     {
         
-        while((c=mydict[]!=EOF)   //integer 'c' has assigned the size of dictionary function 'mydict'
+        while((c=getchar())!=EOF)   //integer 'c' has assigned the size of dictionary function 'mydict'
         {
             jsonstr[pos]=c;
             ++pos;
@@ -272,3 +272,4 @@ int main(void)
 }                                       
 //reference for code : https://stackoverflow.com/questions/14388692/how-to-parse-a-small-json-file-with-jsmn-on-an-embedded-system
 // the code has been taken and tried from this link but couldnt run it properly.
+//
