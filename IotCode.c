@@ -9,7 +9,6 @@
 #include <avr/io.h>
 #include<stdlib>
 #include<string.h>
-#include<unistd.h>
 #include "jsmn.h"
 char mydict[]={'1hzBXmZQgQZ81lnEN8uu': 1, //to remove the accessing data from sd card through SPI PROTOCOL, I make the data of dictionary into string type and accessed it in the code.
         '9VsHYMj14Owzz5OiB6nB': 2,
