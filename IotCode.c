@@ -290,6 +290,8 @@ int main(void)
                             type = 0;
                             break;
             }
+            printf("node: %4d, %9s, parent: %4d, children: %5d, data:\n%.*s, \n", i, type, token->parent, token->size, token->end-token->start, mydict+token->start);
+             printf("node: %4d, %9s, children: %5d, data:\n%.*s, \n", i, type, token->size, token->end-token->start, jsonStr+token->start);
         }
     }
 }                                       
