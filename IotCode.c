@@ -271,27 +271,29 @@ int main(void)
         for(int i=0;i!=tcount;++i)
         {
             jsmntok_t *token=t+i;
-             char* type=0;
+            jsmntype_t type=0;
             switch (token->type)
             {
                     case JSMN_PRIMITIVE:
-                            type="PRIMITIVE";
+                            type = 4;
                             break;
                     case JSMN_OBJECT:
-                            type="OBJECT";
+                            type = 1;
                             break;
                     case JSMN_ARRAY:
-                            type="ARRAY";
+                            type = 2;
                             break;
                     case JSMN_STRING:
-                            type="STRING";
+                            type =3;
                             break;
                     default:
-                            type="UNDEF";
+                            type = 0;
+                            break;
             }
         }
     }
 }                                       
 //reference for code : https://stackoverflow.com/questions/14388692/how-to-parse-a-small-json-file-with-jsmn-on-an-embedded-system
+// reference for understanding : https://github.com/zserge/jsmn/blob/master/jsmn.h
 // the code has been taken and tried from this link but couldnt run it properly.
 //
