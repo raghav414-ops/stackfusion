@@ -246,7 +246,7 @@ char mydict[]={'1hzBXmZQgQZ81lnEN8uu': 1, /*to avoid the accessing data from sd 
         'QpCronvztjz6q44odILw': 1000}
 
 //parsing code for dictionary function in c
-jsmntok_t t[1000];                 // it means that we expect 1000 json tokens
+jsmn_t t[1000];                 // it means that we expect 1000 json tokens
  jsmn_parser p;
  jsmn_init(&p);
 //char jsonstr[512*1024];
@@ -266,13 +266,29 @@ int main(void)
         }
         mydict[pos]=0;
            
-        int tcount=jsmn_parse(&p, jsonstr, strlen(jsonstr),t, sizeof(t)/sizeof(*t));
+        int tcount=jsmn_parse(&p, mydict, strlen(mydict),t, sizeof(t)/sizeof(*t));
         
         for(int i=0;i!=tcount;++i)
         {
             jsmntok_t *token=t+i;
              char* type=0;
-            switch   
+            switch (token->type)
+            {
+                    case JSMN_PRIMITIVE:
+                            type="PRIMITIVE";
+                            break;
+                    case JSMN_OBJECT:
+                            type="OBJECT";
+                            break;
+                    case JSMN_ARRAY:
+                            type="ARRAY";
+                            break;
+                    case JSMN_STRING:
+                            type="STRING";
+                            break;
+                    default:
+                            type="UNDEF";
+            }
         }
     }
 }                                       
