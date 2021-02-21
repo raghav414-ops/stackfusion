@@ -9,9 +9,12 @@
 #include <avr/io.h>
 #include<stdlib>
 #include<string.h>
+#include<JSMN_HEADER>
 #include "jsmn.h"
-char mydict[]={'1hzBXmZQgQZ81lnEN8uu': 1, //to remove the accessing data from sd card through SPI PROTOCOL, I make the data of dictionary into string type and accessed it in the code.
-        '9VsHYMj14Owzz5OiB6nB': 2,
+
+
+char mydict[]={'1hzBXmZQgQZ81lnEN8uu': 1, /*to avoid the accessing data from sd card through SPI PROTOCOL, I make the data of dictionary into string type and accessed it in the code.*/
+        '9VsHYMj14Owzz5OiB6nB': 2,      //even after accessing the data from the sd card, we have to assign a string variable(like mydict[]) to store the data before further processing.
         'KGgkl8Me1fVGX9miHLgM': 3,
         'Di8i98djVDWfb2zF4Yip': 4,
         'CMzTJNeytP5lwmb7975p': 5,
@@ -243,8 +246,10 @@ char mydict[]={'1hzBXmZQgQZ81lnEN8uu': 1, //to remove the accessing data from sd
         'QpCronvztjz6q44odILw': 1000}
 
 //parsing code for dictionary function in c
-jsmn_t t[512];
-char jsonstr[512*1024];
+jsmntok_t t[1000];                 // it means that we expect 1000 json tokens
+ jsmn_parser p;
+ jsmn_init(&p);
+//char jsonstr[512*1024];
 int main(void)
 {
     size_t pos=0;
@@ -255,18 +260,19 @@ int main(void)
         
         while((c=getchar())!=EOF)   //integer 'c' has assigned the size of dictionary function 'mydict'
         {
-            jsonstr[pos]=c;
+            mydict[pos]=c;
             ++pos;
-            if(pos==sizeof(jsonstr)) break;
+            if(pos==sizeof(mydict)) break;
         }
-        jsonstr[pos]=0;
-            jsmn_parser p;
-            jsmn_init(&p);
+        mydict[pos]=0;
+           
         int tcount=jsmn_parse(&p, jsonstr, strlen(jsonstr),t, sizeof(t)/sizeof(*t));
         
         for(int i=0;i!=tcount;++i)
         {
             jsmntok_t *token=t+i;
+             char* type=0;
+            switch   
         }
     }
 }                                       
