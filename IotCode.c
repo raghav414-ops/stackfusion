@@ -298,4 +298,4 @@ int main(void)
 //reference for code : https://stackoverflow.com/questions/14388692/how-to-parse-a-small-json-file-with-jsmn-on-an-embedded-system
 // reference for understanding : https://github.com/zserge/jsmn/blob/master/jsmn.h
 // the code has been taken and tried from this link but couldnt run it properly.
-//
+//the error was showing inside the 'jsmn.h' library. the error is related to its indentation.
