@@ -258,7 +258,7 @@ int main(void)
     while(1)
     {
         
-        while((c=getchar())!=EOF)   //integer 'c' has assigned the size of dictionary function 'mydict'
+        while((c=getchar())!=EOF)   //integer 'c' initialised with the character of key
         {
             mydict[pos]=c;
             ++pos;
